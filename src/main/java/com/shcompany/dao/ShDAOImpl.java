@@ -24,10 +24,10 @@ public class ShDAOImpl implements ShDAO {
 	
 
 	@Override
-	public String loginCheck(String id, String password) {
+	public String loginCheck(String id) {
 		String result;
 		MemberMapper memberMapper = sqlSession.getMapper(MemberMapper.class);
-		result = memberMapper.loginCheck(id, password);
+		result = memberMapper.loginCheck(id);
 		return result;
 	}
 }
