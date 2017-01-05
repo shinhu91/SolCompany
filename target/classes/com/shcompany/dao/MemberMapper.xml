@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shcompany.dao.MemberMapper">
+	<resultMap type="com.shcompany.vo.Member" id="MemberResultMap">
+		<result property="id" column="id" />
+		<result property="password" column="password" />
+		<result property="password2" column="password2" />
+		<result property="birth" column="birth" />
+	</resultMap>
+	
+	<insert id="setMember">
+	insert into member(id,password,password2,birth) values(#{id},#{password},#{password2},#{birth})
+	</insert>
+	
+	<select id="loginMem" resultMap="MemberResultMap">
+	select id,password from member where id=#{id}
+	</select>
+	</mapper>
