@@ -14,7 +14,7 @@
 	insert into member(id,password,password2,birth) values(#{id},#{password},#{password2},#{birth})
 	</insert>
 	
-	<select id="loginMem" resultMap="MemberResultMap">
-	select id,password from member where id=#{id}
+	<select id="loginCheck" parameterType="String" resultType="String">
+	select password from member where id=#{id} and password=#{password}
 	</select>
 	</mapper>

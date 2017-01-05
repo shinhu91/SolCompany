@@ -16,13 +16,18 @@ public class ShDAOImpl implements ShDAO {
 	public int setMember(Member member) {
 		MemberMapper memberMapper = sqlSession.getMapper(MemberMapper.class);
 		int result;
-		result = memberMapper.getMember(member);
+		result = memberMapper.setMember(member);
 		return result;
 		
 	}
 
-	public void loginMem(Member member) {
+	
+
+	@Override
+	public String loginCheck(String id, String password) {
+		String result;
 		MemberMapper memberMapper = sqlSession.getMapper(MemberMapper.class);
-		memberMapper.lo
+		result = memberMapper.loginCheck(id, password);
+		return result;
 	}
 }

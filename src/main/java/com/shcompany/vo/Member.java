@@ -1,11 +1,19 @@
 package com.shcompany.vo;
 
 public class Member {
-
+	private int idx;
 	private String id;
 	private String password;
 	private String password2;
 	private int birth;
+
+	public int getIdx() {
+		return idx;
+	}
+
+	public void setIdx(int idx) {
+		this.idx = idx;
+	}
 
 	public String getPassword2() {
 		return password2;
