@@ -6,7 +6,7 @@ password2 varchar(20) not null,
 birth int not null
 )
 
-select id,password from member where id ="a"
+select password from member where id ='a' and password='a'
 insert into member(id,password,password2,birth) values("a","a","a",1)
 select *from member;
 drop table member;

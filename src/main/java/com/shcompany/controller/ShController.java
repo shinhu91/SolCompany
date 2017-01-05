@@ -1,5 +1,7 @@
 package com.shcompany.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,9 +42,12 @@ public class ShController {
 	}
 	//로그인 처리
 	@RequestMapping(value="/log.sh")
-	public ModelAndView log(Member member){
-		
-		shDAOImpl.loginMem(member);
+	public ModelAndView log(HttpServletRequest request){
+		String pwd;
+		String id = request.getParameter("id");
+		String password = request.getParameter("password");
+		pwd = shDAOImpl.loginCheck(id, password);
+		System.out.println("가져온 pwd"+pwd); 
 		return null;
 		
 	}
