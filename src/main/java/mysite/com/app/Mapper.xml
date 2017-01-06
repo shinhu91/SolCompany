@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapperLocations">
+
+<insert id="insertBoard" parameterType="mysite.com.app.BoardBean">
+insert into member(writer,rank,buy,count,reason) values(#{writer},#{rank},#{buy},#{count},#{reason})
+</insert>
+
+<select id="Listselect" resultType="mysite.com.app.BoardBean">
+select * from member
+</select>
+
+<select id="readselect" parameterType="String" resultType="mysite.com.app.BoardBean" >
+select * from member where idx=#{idx}
+</select>
+
+<insert id="insertBuy" parameterType="mysite.com.app.BoardBean">
+<!-- insert into items(desk) values(#{count}) -->
+
+update items set desk = desk+${count} where idx=1
+
+</insert>
+
+<insert id="insertBuy2" parameterType="mysite.com.app.BoardBean">
+<!-- insert into items(chair) values(#{count}) -->
+
+update items set desk = chair+${count} where idx=2
+
+</insert>
+
+<insert id="inserttest" parameterType="mysite.com.app.BoardBean">
+insert into items(${buy}) values(#{count})
+</insert>
+
+
+
+</mapper>
