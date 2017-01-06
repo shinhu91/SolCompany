@@ -11,4 +11,6 @@ public interface MemberMapper {
 
 	public Member getMember(String id);
 
+	public Member searchId_pw(@Param("name") String name,@Param("birth") String birth);
+
 }

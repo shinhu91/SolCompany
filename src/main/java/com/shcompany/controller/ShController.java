@@ -20,12 +20,9 @@ public class ShController {
 
 	// 회원가입 페이지
 	@RequestMapping(value = "/register.sh")
-	public ModelAndView main() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("register");
-		return mv;
+	public String register() {
+		return "register";
 	}
-
 	// 회원가입 처리
 	@RequestMapping(value = "/reg.sh")
 	public ModelAndView reg(Member member) {
@@ -67,31 +64,50 @@ public class ShController {
 		return null;
 
 	}
-	//내 정보 보기
+
+	// 내 정보 보기
 	@RequestMapping(value = "/myInfo.sh")
-	public ModelAndView myInfo(HttpServletRequest request){
-		
+	public ModelAndView myInfo(HttpServletRequest request) {
+
 		ModelAndView mv = new ModelAndView();
 		HttpSession session = request.getSession();
 		Member member = new Member();
 		String id = (String) session.getAttribute("Sid");
 		member = shDAOImpl.getMember(id);
-		mv.addObject("myInfo",member);
+		mv.addObject("myInfo", member);
 		mv.setViewName("myInfo");
 		return mv;
-		
+
 	}
-	//아이디 찾기
-	@RequestMapping(value = "/findId")
-	public String findId(){
+
+	// 아이디 찾기
+	@RequestMapping(value = "/findId.sh")
+	public String findId() {
 		return "findId";
 	}
-	@RequestMapping(value="/searchId")
-	public ModelAndView searchId(){
+	@RequestMapping(value = "/searchId.sh")
+	public ModelAndView searchId(@RequestParam("name") String name, @RequestParam("birth") String birth) {
 		ModelAndView mv = new ModelAndView();
+		Member member = shDAOImpl.searchId_pw(name,birth);
+		String id = member.getId();
+		mv.addObject("searchId",id);
+		mv.setViewName("searchId");
 		return mv;
 	}
-	//비밀번호 찾기
-	//정보 수정
-	
+	// 비밀번호 찾기
+	@RequestMapping(value = "/findPw.sh")
+	public String findPw() {
+		return "findPw";
+	}
+	@RequestMapping(value = "/searchPw.sh")
+	public ModelAndView searchPw(@RequestParam("name") String name, @RequestParam("birth") String birth) {
+		ModelAndView mv = new ModelAndView();
+		Member member = shDAOImpl.searchId_pw(name,birth);
+		String pw = member.getId();
+		mv.addObject("searchPw",pw);
+		mv.setViewName("searchPw");
+		return mv;
+	}
+	// 정보 수정
+
 }

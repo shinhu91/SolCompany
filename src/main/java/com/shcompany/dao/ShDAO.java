@@ -9,5 +9,7 @@ public interface ShDAO {
 	public Member loginCheck(String id);
 
 	public Member getMember(String id);
+	
+	public Member searchId_pw(String name, String birth);
 
 }
