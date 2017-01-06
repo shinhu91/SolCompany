@@ -9,11 +9,10 @@
 <body>
 <a href="/register.sh">회원가입</a>
 <a href="/login.sh">로그인</a>
-<a href="*">아이디 찾기</a>
-<a href="*">비밀번호 찾기</a>
+<a href="/findId.sh">아이디 찾기</a>
+<a href="/findPw.sh">비밀번호 찾기</a>
 <a href="/myInfo.sh">내 정보 보기</a>
-<a href="*">내 정보 수정</a>
-
+<a href="/editInfo.sh">내 정보 수정</a>
 
 </body>
 </html>

@@ -69,18 +69,26 @@ public class ShController {
 		return null;
 
 	}
+	//내 정보 보기
 	@RequestMapping(value = "/myInfo.sh")
 	public ModelAndView myInfo(HttpServletRequest request){
+		
 		ModelAndView mv = new ModelAndView();
 		HttpSession session = request.getSession();
 		Member member = new Member();
 		String id = (String) session.getAttribute("Sid");
-		
 		member = shDAOImpl.getMember(id);
-		System.out.println("가져온 정보들"+member.getBirth()+member.getId()+member.getPassword());
 		mv.addObject("myInfo",member);
 		mv.setViewName("myInfo");
 		return mv;
+		
 	}
+	//아이디 찾기
+	@RequestMapping(value = "/findId")
+	public ModelAndView findId(){
+		return null;
+	}
+	//비밀번호 찾기
+	//정보 수정
 	
 }
