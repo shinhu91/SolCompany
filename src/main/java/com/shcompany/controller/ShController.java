@@ -38,10 +38,8 @@ public class ShController {
 
 	// 로그인 페이지
 	@RequestMapping(value = "/login.sh")
-	public ModelAndView login() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("login");
-		return mv;
+	public String login() {
+		return "login";
 	}
 
 	// 로그인 처리
@@ -85,8 +83,13 @@ public class ShController {
 	}
 	//아이디 찾기
 	@RequestMapping(value = "/findId")
-	public ModelAndView findId(){
-		return null;
+	public String findId(){
+		return "findId";
+	}
+	@RequestMapping(value="/searchId")
+	public ModelAndView searchId(){
+		ModelAndView mv = new ModelAndView();
+		return mv;
 	}
 	//비밀번호 찾기
 	//정보 수정
