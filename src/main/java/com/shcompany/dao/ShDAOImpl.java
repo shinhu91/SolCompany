@@ -11,23 +11,23 @@ public class ShDAOImpl implements ShDAO {
 
 	@Autowired
 	private SqlSession sqlSession;
-	
+
 	@Override
 	public int setMember(Member member) {
 		MemberMapper memberMapper = sqlSession.getMapper(MemberMapper.class);
-		int result;
-		result = memberMapper.setMember(member);
-		return result;
-		
+		return memberMapper.setMember(member);
+
 	}
 
-	
-
 	@Override
-	public String loginCheck(String id, String password) {
-		String result;
+	public Member loginCheck(String id) {
 		MemberMapper memberMapper = sqlSession.getMapper(MemberMapper.class);
-		result = memberMapper.loginCheck(id, password);
-		return result;
+		return memberMapper.loginCheck(id);
+	}
+
+	public Member getMember(String id) {
+		// TODO Auto-generated method stub
+		MemberMapper memberMapper = sqlSession.getMapper(MemberMapper.class);
+		return memberMapper.getMember(id);
 	}
 }

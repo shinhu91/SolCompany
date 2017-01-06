@@ -11,8 +11,9 @@
 <a href="/login.sh">로그인</a>
 <a href="*">아이디 찾기</a>
 <a href="*">비밀번호 찾기</a>
-<a href="*">내 정보 보기</a>
+<a href="/myInfo.sh">내 정보 보기</a>
 <a href="*">내 정보 수정</a>
+
 
 </body>
 </html>
