@@ -1,6 +1,7 @@
 package com.shcompany.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -46,20 +47,21 @@ public class ShController {
 	// 로그인 처리
 	@RequestMapping(value = "/log.sh")
 	public ModelAndView log(HttpServletRequest request) {
+		HttpSession session = request.getSession();
 		ModelAndView mv = new ModelAndView();
-		boolean flag;
+		Member member = new Member();
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
-		
-		if (shDAOImpl.loginCheck(id) == null) {
-			flag=false;
-			mv.addObject("result", flag);
+		member = shDAOImpl.loginCheck(id);
+
+		if (member == null) {
+			mv.addObject("loginOk", member);
 			mv.setViewName("login");
 			return mv;
 		} else {
-			if (shDAOImpl.loginCheck(id).equals(password)) {
-				flag=true;
-				mv.addObject("result", flag);
+			if (member.getPassword().equals(password)) {
+				session.setAttribute("Sid", member.getId());
+				mv.addObject("loginOk", member);
 				mv.setViewName("login");
 				return mv;
 			}
@@ -67,24 +69,18 @@ public class ShController {
 		return null;
 
 	}
-
-	//
-	// @RequestMapping(value = "/reg.sh")
-	// public ModelAndView save(@RequestParam("id") String id,
-	// @RequestParam("password") String password,
-	// @RequestParam("password2") String password2, @RequestParam("birth") int
-	// birth) {
-	// ModelAndView mv = new ModelAndView();
-	// Member member = new Member();
-	// member.setId(id);
-	// member.setPassword(password);
-	// member.setPassword2(password2);
-	// member.setBirth(birth);
-	// int result = shDAOImpl.getMember(member);
-	// System.out.println(result);
-	// mv.addObject("result", result);
-	// mv.setViewName("1");
-	// return mv;
-	//
-	// }
+	@RequestMapping(value = "/myInfo.sh")
+	public ModelAndView myInfo(HttpServletRequest request){
+		ModelAndView mv = new ModelAndView();
+		HttpSession session = request.getSession();
+		Member member = new Member();
+		String id = (String) session.getAttribute("Sid");
+		
+		member = shDAOImpl.getMember(id);
+		System.out.println("가져온 정보들"+member.getBirth()+member.getId()+member.getPassword());
+		mv.addObject("myInfo",member);
+		mv.setViewName("myInfo");
+		return mv;
+	}
+	
 }

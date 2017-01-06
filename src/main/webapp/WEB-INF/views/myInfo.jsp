@@ -7,12 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="/register.sh">회원가입</a>
-<a href="/login.sh">로그인</a>
-<a href="*">아이디 찾기</a>
-<a href="*">비밀번호 찾기</a>
-<a href="/myInfo.sh">내 정보 보기</a>
-<a href="*">내 정보 수정</a>
+
+<table border="1">
+<tr><td>아이디</td><td>${myInfo.id }</td></tr>
+<tr><td>생년월일</td><td>${myInfo.birth }</td></tr>
+
+</table>
 
 
 </body>

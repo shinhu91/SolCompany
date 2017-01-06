@@ -8,32 +8,30 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:choose>
-		<c:when test="${result == false}">
-			<form action="/log.sh">
-				<table border="1">
-					<tr>
-						<td>아이디</td>
-						<td><input type="text" name="id"></td>
-					</tr>
-					<tr>
-						<td>비밀번호</td>
-						<td><input type="text" name="password"></td>
-					</tr>
-					<tr>
-						<td colspan="2" align="center"><input type="submit"
-							value="로그인"></td>
-					</tr>
-				</table>
-			</form>
-		</c:when>
-		<c:when test="${result==true }">
-		<script type="text/javascript">
-		alert("회원가입 완료");
-		document.location.href = "/index.jsp";
-		</script>
-		</c:when>
-	</c:choose>
+<c:choose>
+<c:when test="${Sid == null }">
+	<form action="/log.sh">
+		<table border="1">
+			<tr>
+				<td>아이디</td>
+				<td><input type="text" name="id"></td>
+			</tr>
+			<tr>
+				<td>비밀번호</td>
+				<td><input type="text" name="password"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit" value="로그인"></td>
+			</tr>
+		</table>
+	</form>
+</c:when>
+<c:when test="${Sid != null }">
+${loginOk.id} 환영해
+</c:when>
+</c:choose>
+
+
 
 </body>
 </html>

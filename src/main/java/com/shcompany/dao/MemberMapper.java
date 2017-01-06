@@ -6,6 +6,9 @@ import com.shcompany.vo.Member;
 
 public interface MemberMapper {
 	public int setMember(Member member);
-	public String loginCheck(@Param("id") String id);
+
+	public Member loginCheck(@Param("id") String id);
+
+	public Member getMember(String id);
 
 }
