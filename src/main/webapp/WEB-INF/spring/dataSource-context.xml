@@ -9,8 +9,15 @@
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url"
 			value="jdbc:mysql://localhost:3306/javadb?characterEncoding=utf-8" />
-		<property name="username" value="javauser" />
+		<property name="username" value="root" />
 		<property name="password" value="1234" />
+	</bean>
+	
+	<bean id="dataSource1" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<property name="url" value="jdbc:mysql://127.0.0.1:3306/javadb?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf8"></property>
+		<property name="username" value="javauser"></property>
+		<property name="password" value="1234"></property>
 	</bean>
 
 </beans>
