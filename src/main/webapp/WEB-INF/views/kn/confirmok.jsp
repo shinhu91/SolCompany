@@ -8,5 +8,6 @@
 </head>
 <body>
 승인처리 되었습니다
+<a href="list.do">결제 목록 가기</a>
 </body>
 </html>

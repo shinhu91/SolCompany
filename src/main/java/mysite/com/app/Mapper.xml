@@ -7,11 +7,17 @@
 <mapper namespace="mapperLocations">
 
 <insert id="insertBoard" parameterType="mysite.com.app.BoardBean">
-insert into request(writer,rank,buy,count,reason,money) values(#{writer},#{rank},#{buy},#{count},#{reason},#{money})
+insert into request(writer,rank,buy,count,reason,state,money) values(#{writer},#{rank},#{buy},#{count},#{reason},#{state},#{money})
 </insert>
 
 <select id="Listselect" resultType="mysite.com.app.BoardBean">
+<!-- select * from request -->
 select * from request
+</select>
+
+<select id="Listselectpage" resultType="mysite.com.app.BoardBean" parameterType="mysite.com.app.BoardBean">
+<!-- select * from request -->
+select * from request limit #{start},5 
 </select>
 
 <select id="readselect" parameterType="String" resultType="mysite.com.app.BoardBean" >
@@ -28,7 +34,7 @@ update items set desk = desk+${count} where idx=1
 <insert id="insertBuy2" parameterType="mysite.com.app.BoardBean">
 <!-- insert into items(chair) values(#{count}) -->
 
-update items set chair = chair+${count} where idx=2
+update items set chair = chair+${count} where idx=1
 
 </insert>
 
@@ -46,12 +52,32 @@ delete from request where idx=#{idx}
 select * from money where idx=1
 </select>
 
-
-
 <insert id="updatemoney" parameterType="mysite.com.app.MoneyBean">
 
 <!-- insert into money(money,asset,borrow) values(#{money},#{asset},#{borrow}); -->
 update money set money= #{money}, asset= #{asset},borrow= #{borrow} where idx=1
 </insert>
+
+<select id="Selectmoneyall" resultType="mysite.com.app.MoneyBean">
+select * from money
+</select>
+
+<select id="Selectbuyall" resultType="mysite.com.app.BuyBean">
+select * from items
+</select>
+
+<select id="memberselect" resultType="mysite.com.app.MemberBean" parameterType="mysite.com.app.MemberBean">
+select * from member where name=#{name}
+<!-- select * from member where idx='1' -->
+</select>
+
+
+<select id="totalpay" resultType="mysite.com.app.MemberBean" >
+select * from member
+<!-- select * from member where idx='1' -->
+</select>
+
+
+
 
 </mapper>

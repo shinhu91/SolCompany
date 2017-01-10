@@ -9,6 +9,7 @@
 <body>
 신청이 완료되었습니다.
 <a href="list.do">리스트 보기</a>
+<a href="finance.do">재무 상태 보기</a>
 
 </body>
 </html>
