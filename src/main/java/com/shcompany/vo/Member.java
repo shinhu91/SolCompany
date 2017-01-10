@@ -3,9 +3,19 @@ package com.shcompany.vo;
 public class Member {
 	private int idx;
 	private String id;
+	private String name;
 	private String password;
 	private String password2;
 	private int birth;
+	
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	public int getIdx() {
 		return idx;

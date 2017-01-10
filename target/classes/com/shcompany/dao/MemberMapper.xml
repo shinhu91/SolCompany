@@ -4,6 +4,7 @@
      "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shcompany.dao.MemberMapper">
 	<resultMap type="com.shcompany.vo.Member" id="MemberResultMap">
+		<result property="name" column="name" />
 		<result property="id" column="id" />
 		<result property="password" column="password" />
 		<result property="password2" column="password2" />
@@ -11,8 +12,8 @@
 	</resultMap>
 
 	<insert id="setMember">
-		insert into member(id,password,password2,birth)
-		values(#{id},#{password},#{password2},#{birth})
+		insert into member(name,id,password,password2,birth)
+		values(#{name},#{id},#{password},#{password2},#{birth})
 	</insert>
 
 	<select id="loginCheck" parameterType="String" resultType="com.shcompany.vo.Member">
@@ -21,5 +22,9 @@
 
 	<select id="getMember" parameterType="String" resultType="com.shcompany.vo.Member">
 		select * from member where id = #{id}
+	</select>
+	
+	<select id="searchId_pw" resultType="com.shcompany.vo.Member">
+		select id,password from member where name = #{name} and birth = #{birth} 
 	</select>
 </mapper>

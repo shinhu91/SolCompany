@@ -30,4 +30,10 @@ public class ShDAOImpl implements ShDAO {
 		MemberMapper memberMapper = sqlSession.getMapper(MemberMapper.class);
 		return memberMapper.getMember(id);
 	}
+
+	@Override
+	public Member searchId_pw(String name, String birth) {
+		MemberMapper memberMapper = sqlSession.getMapper(MemberMapper.class);
+		return memberMapper.searchId_pw(name,birth);
+	}
 }
