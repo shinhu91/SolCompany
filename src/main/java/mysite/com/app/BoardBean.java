@@ -11,9 +11,24 @@ public class BoardBean {
 	private String buy;
 	private String count;
 	private String reason;
+	private String state;
 	private int money;
+	private int start;
 	
-			
+		
+	
+	public int getStart() {
+		return start;
+	}
+	public void setStart(int start) {
+		this.start = start;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
 	public String getCount() {
 		return count;
 	}

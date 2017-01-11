@@ -27,6 +27,11 @@ public class BoardService {
 		return sqlSession.selectList("Listselect");
 	}
 	
+public List Listselectpage(BoardBean bean){
+		
+		return sqlSession.selectList("Listselectpage", bean);
+	}
+	
     public List Selectread(String idx){
 		
 		return sqlSession.selectList("readselect",idx);
@@ -61,6 +66,25 @@ public class BoardService {
 		
 		return sqlSession.insert("updatemoney", bean);
 	}   
+   
+   public List Selectmoneyall(){
+		
+		return sqlSession.selectList("Selectmoneyall");
+	}
+   
+   public List Selectbuyall(){
+		
+		return sqlSession.selectList("Selectbuyall");
+	}
      
+   public List memberselect(MemberBean bean){
+		
+		return sqlSession.selectList("memberselect",bean);
+	}
+   
+   public List totalpay(){
+		
+		return sqlSession.selectList("totalpay");
+	}
    
 }
