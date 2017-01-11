@@ -1,5 +1,13 @@
 drop table request
 
+create table member(
+idx int not null primary key auto_increment,
+name varchar(20),
+rank varchar(20),
+years varchar(20)
+)
+
+
 create table request(
 idx int not null primary key auto_increment,
 writer varchar(50),
