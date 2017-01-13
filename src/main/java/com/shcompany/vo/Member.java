@@ -7,7 +7,25 @@ public class Member {
 	private String password;
 	private String password2;
 	private int birth;
+	private int years;
+	private String rank;
 	
+
+	public int getYears() {
+		return years;
+	}
+
+	public void setYears(int years) {
+		this.years = years;
+	}
+
+	public String getRank() {
+		return rank;
+	}
+
+	public void setRank(String rank) {
+		this.rank = rank;
+	}
 
 	public String getName() {
 		return name;

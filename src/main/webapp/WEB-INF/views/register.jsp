@@ -30,6 +30,14 @@
 					<td>생년월일</td>
 					<td><input type="text" name="birth" required></td>
 				</tr>
+				<tr>
+					<td>직책</td>
+					<td><input type="text" name="rank" required></td>
+				</tr>
+				<tr>
+					<td>연차</td>
+					<td><input type="text" name="years" required></td>
+				</tr>
 
 				<tr>
 					<td colspan="2" align="center"><input type="submit" value="가입"></td>

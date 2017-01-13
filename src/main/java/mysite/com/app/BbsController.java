@@ -301,7 +301,7 @@ public class BbsController {
 //    	HttpSession session=request.getSession();
 //    	String writername = (String)session.getAttribute("memid");
     	
-    	MemberBean member = new MemberBean();
+    	MemberBean member = new MemberBean();    	
     	member.setName("이경남");
     	
     	List<MemberBean> result = boardService.memberselect(member);

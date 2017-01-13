@@ -61,8 +61,8 @@
 		<url-pattern>*.sh</url-pattern>
 	</servlet-mapping>
 	
-<!-- 	<welcome-file-list> -->
-<!-- 		<welcome-file>ohno.jsp</welcome-file> -->
-<!-- 	</welcome-file-list> -->
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
 
 </web-app>

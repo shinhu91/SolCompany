@@ -4,37 +4,26 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
                         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
+	<!-- <bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean"> -->
+	<!-- <property name="dataSource" ref="dataSource" /> -->
+	<!-- <property name="typeAliasesPackage" value="com.shcompany.dao" /> -->
+	<!-- <property name="mapperLocations" value="classpath:com/shcompany/dao/*.xml" 
+		/> -->
+	<!-- </bean> -->
+
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="typeAliasesPackage" value="com.shcompany.dao" />
-		<property name="mapperLocations" value="classpath:com/shcompany/dao/*.xml" />
+		<property name="mapperLocations">
+			<array>
+				<value>classpath:com/shcompany/dao/*.xml</value>
+				<value>classpath:mysite/com/app/Mapper*.xml</value>
+			</array>
+		</property>
 	</bean>
-	
-	<bean id="sqlSession1" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="dataSource1" />		
-		<property name="mapperLocations" value="classpath:mysite/com/app/Mapper*.xml" />
-	</bean>
-	
-	
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
-	
-		<constructor-arg index="0" ref="sqlSession1" />
-<!-- 		<constructor-arg index="1" ref="sqlSession1" /> -->
-		
-	</bean>	
-	
-<!-- 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"> -->
-<!-- 		<property name="dataSource" ref="dataSource1"></property> -->
-<!-- 		<property name="mapperLocations" value="classpath:mysite/com/app/Mapper*.xml"></property> -->
-<!-- 	</bean> -->
-<!-- <bean id="SqlSession" class="org.mybatis.spring.SqlSessionTemplate"> -->
-<!-- 		<constructor-arg index="0" ref="sqlSessionFactory"></constructor-arg> -->
-<!-- 	</bean> -->
-	
-	
-	
-	
-	
-	<context:component-scan base-package="com.shcompany.*"/>
+		<constructor-arg index="0" ref="sqlSession" />
+	</bean>
+	<context:component-scan base-package="com.shcompany.*" />
 
 </beans>

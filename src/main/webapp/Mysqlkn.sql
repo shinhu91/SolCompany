@@ -1,16 +1,7 @@
 drop table request
 
-<<<<<<< HEAD
-create table member(
-idx int not null primary key auto_increment,
-name varchar(20),
-rank varchar(20),
-years varchar(20)
-)
 
-=======
 select * from request limit 0,3 
->>>>>>> 4bf32652d1f1f33e6fb1fdd53a83b0c62c5dd143
 
 create table request(
 idx int not null primary key auto_increment,

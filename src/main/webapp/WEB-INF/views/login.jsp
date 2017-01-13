@@ -26,8 +26,10 @@
 		</table>
 	</form>
 </c:when>
-<c:when test="${Sid != null }">
-${loginOk.id} 환영해
+<c:when test="${Srank == '부장' }">
+<script type="text/javascript">
+document.location.href="/list.do"
+</script>
 </c:when>
 </c:choose>
 

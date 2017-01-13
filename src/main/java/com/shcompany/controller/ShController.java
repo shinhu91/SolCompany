@@ -23,6 +23,7 @@ public class ShController {
 	public String register() {
 		return "register";
 	}
+
 	// 회원가입 처리
 	@RequestMapping(value = "/reg.sh")
 	public ModelAndView reg(Member member) {
@@ -48,6 +49,7 @@ public class ShController {
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 		member = shDAOImpl.loginCheck(id);
+		System.out.println("member"+member);
 
 		if (member == null) {
 			mv.addObject("loginOk", member);
@@ -55,10 +57,19 @@ public class ShController {
 			return mv;
 		} else {
 			if (member.getPassword().equals(password)) {
+				System.out.println(member.getPassword());
 				session.setAttribute("Sid", member.getId());
-				mv.addObject("loginOk", member);
-				mv.setViewName("login");
-				return mv;
+				System.out.println("bbbbb11111");
+				if (member.getRank().equals("부장")) {
+					System.out.println("bbbbb");
+					session.setAttribute("Srank", member.getRank());
+					mv.setViewName("login");
+					return mv;
+				} else {
+					mv.addObject("loginOk", member);
+					mv.setViewName("list");
+					return mv;
+				}
 			}
 		}
 		return null;
@@ -85,26 +96,29 @@ public class ShController {
 	public String findId() {
 		return "findId";
 	}
+
 	@RequestMapping(value = "/searchId.sh")
 	public ModelAndView searchId(@RequestParam("name") String name, @RequestParam("birth") String birth) {
 		ModelAndView mv = new ModelAndView();
-		Member member = shDAOImpl.searchId_pw(name,birth);
+		Member member = shDAOImpl.searchId_pw(name, birth);
 		String id = member.getId();
-		mv.addObject("searchId",id);
+		mv.addObject("searchId", id);
 		mv.setViewName("searchId");
 		return mv;
 	}
+
 	// 비밀번호 찾기
 	@RequestMapping(value = "/findPw.sh")
 	public String findPw() {
 		return "findPw";
 	}
+
 	@RequestMapping(value = "/searchPw.sh")
 	public ModelAndView searchPw(@RequestParam("name") String name, @RequestParam("birth") String birth) {
 		ModelAndView mv = new ModelAndView();
-		Member member = shDAOImpl.searchId_pw(name,birth);
+		Member member = shDAOImpl.searchId_pw(name, birth);
 		String pw = member.getId();
-		mv.addObject("searchPw",pw);
+		mv.addObject("searchPw", pw);
 		mv.setViewName("searchPw");
 		return mv;
 	}
