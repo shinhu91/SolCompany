@@ -64,7 +64,6 @@ public class ShController {
 			}
 		}
 		return null;
-
 	}
 
 	// 내 정보 보기
