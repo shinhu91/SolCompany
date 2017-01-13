@@ -49,7 +49,6 @@ public class ShController {
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 		member = shDAOImpl.loginCheck(id);
-		System.out.println("member"+member);
 
 		if (member == null) {
 			mv.addObject("loginOk", member);
@@ -57,19 +56,11 @@ public class ShController {
 			return mv;
 		} else {
 			if (member.getPassword().equals(password)) {
-				System.out.println(member.getPassword());
 				session.setAttribute("Sid", member.getId());
-				System.out.println("bbbbb11111");
-				if (member.getRank().equals("부장")) {
-					System.out.println("bbbbb");
-					session.setAttribute("Srank", member.getRank());
-					mv.setViewName("login");
-					return mv;
-				} else {
-					mv.addObject("loginOk", member);
-					mv.setViewName("list");
-					return mv;
-				}
+				mv.addObject("loginOk", member);
+				session.setAttribute("Srank", member.getRank());
+				mv.setViewName("login");
+				return mv;
 			}
 		}
 		return null;

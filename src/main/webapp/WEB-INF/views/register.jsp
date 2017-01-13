@@ -3,47 +3,28 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" href="/resources/css/login.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
-	<center>
-		<form action="/reg.sh" method="post">
-			<table border="1">
-				<tr>
-					<td>이름</td>
-					<td><input type="text" name="name" required></td>
-				</tr>
-				<tr>
-					<td>아이디</td>
-					<td><input type="text" name="id" required></td>
-				</tr>
-				<tr>
-					<td>비밀번호</td>
-					<td><input type="text" name="password" required></td>
-				</tr>
-				<tr>
-					<td>비밀번호 확인</td>
-					<td><input type="text" name="password2" required></td>
-				</tr>
-				<tr>
-					<td>생년월일</td>
-					<td><input type="text" name="birth" required></td>
-				</tr>
-				<tr>
-					<td>직책</td>
-					<td><input type="text" name="rank" required></td>
-				</tr>
-				<tr>
-					<td>연차</td>
-					<td><input type="text" name="years" required></td>
-				</tr>
-
-				<tr>
-					<td colspan="2" align="center"><input type="submit" value="가입"></td>
-				</tr>
-			</table>
-		</form>
-	</center>
+<body bgcolor="#f4efef">
+	<div class="login-page">
+		<div class="form">
+			<h3>인사 관리</h3>
+			<form action="/reg.sh" method="post" class="login-form">
+				<input type="text" placeholder="이름" name="name" /> <input
+					type="text" placeholder="아이디" name="id" /> <input type="text"
+					placeholder="비밀번호" name="password" /> <input type="text"
+					placeholder="비밀번호 확인" name="password2" /> <input type="text"
+					placeholder="생년월일" name="birth" /> <input type="text"
+					placeholder="직급" name="rank" /> <input type="text"
+					placeholder="년차" name="years" />
+				<button>create</button>
+				<p class="message">
+					Already registered? <a href="/index.jsp">Sign In</a>
+				</p>
+			</form>
+		</div>
+	</div>
 </body>
 </html>

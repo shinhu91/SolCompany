@@ -8,30 +8,21 @@
 <title>Insert title here</title>
 </head>
 <body>
-<c:choose>
-<c:when test="${Sid == null }">
-	<form action="/log.sh">
-		<table border="1">
-			<tr>
-				<td>아이디</td>
-				<td><input type="text" name="id"></td>
-			</tr>
-			<tr>
-				<td>비밀번호</td>
-				<td><input type="text" name="password"></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center"><input type="submit" value="로그인"></td>
-			</tr>
-		</table>
-	</form>
-</c:when>
-<c:when test="${Srank == '부장' }">
-<script type="text/javascript">
-document.location.href="/list.do"
-</script>
-</c:when>
-</c:choose>
+	<c:choose>
+		<c:when test="${loginOk == null }">
+			<script type="text/javascript">
+				alert("아이디와 비밀번호를 확인하세요");
+				document.location.href = "/index.jsp"
+			</script>
+		</c:when>
+		<c:when test="${loginOk !=null}">
+			<c:if test="${Srank == '부장' }">
+				<script type="text/javascript">
+					document.location.href = "/list.do"
+				</script>
+			</c:if>
+		</c:when>
+	</c:choose>
 
 
 
